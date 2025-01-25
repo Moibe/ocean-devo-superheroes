@@ -66,9 +66,12 @@ def mass(input1, gender):
     imagenPosition = gradio_client.handle_file(splash_tools.getPosition(carpeta_positions)) 
 
     print("Salí de el handlefile e imagePosition es: ", imagenPosition)
+    nombre_posicion = imagenPosition['path']
+
+    print("El nombre posición es: ", nombre_posicion)
     
     #Ésta parte es para obtener el nombre de la posición y guardarla en el log.
-    nombre_posicion = imagenPosition['path'].rsplit("\\", 1)[1] 
+    #nombre_posicion = imagenPosition['path'].rsplit("\\", 1)[1] 
 
     print("Hice el split y ahora tengo un nombre posición: ", nombre_posicion)
   
