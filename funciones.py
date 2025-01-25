@@ -64,9 +64,13 @@ def mass(input1, gender):
     imagenSource = gradio_client.handle_file(input1)
     carpeta_positions = datos["positions_path"]  
     imagenPosition = gradio_client.handle_file(splash_tools.getPosition(carpeta_positions)) 
+
+    print("Salí de el handlefile e imagePosition es: ", imagenPosition)
     
     #Ésta parte es para obtener el nombre de la posición y guardarla en el log.
     nombre_posicion = imagenPosition['path'].rsplit("\\", 1)[1] 
+
+    print("Hice el split y ahora tengo un nombre posición: ", nombre_posicion)
   
     #Objeto a Crear
     creacion_seleccionada = datos["creacion"]
