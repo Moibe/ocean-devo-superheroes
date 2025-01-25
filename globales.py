@@ -3,7 +3,7 @@ import gradio as gr
 nombre_diccionario = "datos_superheroe"
 
 #MAIN
-version = "8.18.23"
+version = "8.18.24"
 env = "dev"
 aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
 
@@ -14,7 +14,6 @@ api_zero = ("Moibe/InstantID2", "quota")
 api_cost = ("Moibe/InstantID2-B", "costo")
 
 interface_api_name = "/generate_image" #El endpoint al que llamará client.
-
 
 process_cost = 30
 
