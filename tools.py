@@ -99,7 +99,7 @@ def initAPI(api):
     
     return result_from_initAPI
 
-def titulizaExcepDeAPI(e):  
+def titulizaExcepDeAPI(e): 
     #Resume una excepción a un título manejable.
     if "RUNTIME_ERROR" in str(e):
         resultado = "RUNTIME_ERROR" #api mal construida tiene error.
@@ -113,6 +113,8 @@ def titulizaExcepDeAPI(e):
         resultado = "HANDSHAKE_ERROR"
     elif "File None does not exist on local filesystem and is not a valid URL." in str(e):
         resultado = "NO_FILE"
+    elif "too many values to unpack (expected 2)" in str(e): #No es lo ideal pero instantid no envía mensaje tan específico, FUTURE: tendrías que modificarlo haya y no se si lo valga. 
+        resultado = "NO_FACE"
     #A partir de aquí son casos propios de cada aplicación.
     elif "Unable to detect a face" in str(e):
         resultado = "NO_FACE"
