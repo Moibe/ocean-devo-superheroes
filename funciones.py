@@ -16,7 +16,7 @@ mensajes, sulkuMessages = tools.get_mensajes(globales.mensajes_lang)
 btn_buy = gr.Button("Get Credits", visible=False, size='lg')
 
 #PERFORM es la app INTERNA que llamará a la app externa.
-def perform(input1, gender, request: gr.Request):          
+def perform(input1, gender, hero, request: gr.Request):          
 
     nombre_posicion = ""
     tokens = sulkuPypi.getTokens(sulkuPypi.encripta(request.username).decode("utf-8"), globales.env)
@@ -26,7 +26,7 @@ def perform(input1, gender, request: gr.Request):
     if autorizacion is True:
         try: 
             gender = gender or "superhero" #default es superhero.
-            resultado, nombre_posicion = mass(input1, gender)
+            resultado, nombre_posicion = mass(input1, gender, hero)
             #El resultado ya viene destuplado.
         except Exception as e:
             print("Excepción en mass: ", e)                     
@@ -50,8 +50,10 @@ def perform(input1, gender, request: gr.Request):
     return resultado, info_window, html_credits, btn_buy, nombre_posicion
 
 #MASS es la que ejecuta la aplicación EXTERNA
-def mass(input1, gender):
-    
+def mass(input1, gender, hero):
+
+    print("El hero recibido es: ", hero)
+        
     api, tipo_api = tools.eligeAPI(globales.seleccion_api)  
     client = gradio_client.Client(api, hf_token=bridges.hug)
     #client = gradio_client.Client("https://058d1a6dcdbaca0dcf.gradio.live/")  #MiniProxy
@@ -59,6 +61,8 @@ def mass(input1, gender):
     #Adquisición Databank Particular para ese objeto y género....
     nombre_databank = gender
     datos = getattr(configuracion, nombre_databank)
+
+    print("182: Ésto es datos obtenido de getattr: ", datos)
     
     #Posición
     imagenSource = gradio_client.handle_file(input1)
@@ -72,14 +76,16 @@ def mass(input1, gender):
       
     #Objeto a Crear
     creacion_seleccionada = datos["creacion"]
-    selected_databank = datos["selected_databank"]
-    creacion=splash_tools.creadorObjeto(creacion_seleccionada, selected_databank) 
+    #selected_databank = datos["selected_databank"] #Se usa cuando viene de objeto no de dropdown.
+    #creacion=splash_tools.creadorObjeto(creacion_seleccionada, selected_databank) #Se usa solo si se arma como objeto random.
     #1) Aquí podrías pasarle style="anime".
     #2) Aquí con los parámetros que te estuviera pasando por ejemplo via input.
     #En éste ejemplo haríamos que siempre sea ánime. #creacion.style = "Anime"
     
     #Prompt, que también usará que objeto és y su género.
-    prompt = prompter.prompteador(creacion, gender)      
+    #prompt = prompter.prompteador(creacion, gender)    
+    #Fraseador se usa cuando traemos el que heroe es directo del dropdownlist.
+    prompt = prompter.fraseador(hero, gender)
 
     try:        
         result = client.predict(

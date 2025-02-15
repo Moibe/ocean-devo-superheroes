@@ -10,11 +10,12 @@ def inputs_selector(set):
             input1 = config["input1"]
             result = config["result"]
             return input1, result
-        elif len(config) == 3:
+        elif len(config) == 4:
             input1 = config["input1"]
             input2 = config["gender"]
+            input3 = config["hero"]
             result = config["result"]
             
-            return input1, input2, result
+            return input1, input2, input3, result
     else:
         print("Set no válido")

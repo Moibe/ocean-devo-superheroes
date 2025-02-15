@@ -7,6 +7,7 @@ import splashmix.configuracion
 #IMPORTANTE: Nombre diccionario dice exactamente que databank usa el objeto en cuestión. 
 #Los databanks se alojan en la carpeta data.
 
+#Va a crear los propmts cuando reciba un objeto completo con las características del heroe.
 def prompteador(objeto, nombre_diccionario):
     datos = getattr(splashmix.configuracion, nombre_diccionario)
     creacion_seleccionada = datos["creacion"]
@@ -25,4 +26,21 @@ def prompteador(objeto, nombre_diccionario):
         prompt = f"""A {objeto.style} of a {objeto.adjective} {objeto.type_girl} {objeto.subject} with {objeto.boobs} and {objeto.hair_style} wearing {objeto.wardrobe_top}, 
                 {objeto.wardrobe_accesories}, {objeto.wardrobe_bottom}, {objeto.wardrobe_shoes}, {objeto.situacion} at {objeto.place} {objeto.complemento}"""   
         print(prompt)      
+    return prompt
+
+#Va a crear el prompt cuando nen lugar del objeto tenemos simplemente el nombre de un heroe (cuando se obtiene de lista.)
+def fraseador(nombre_heroe, nombre_diccionario):
+    datos = getattr(splashmix.configuracion, nombre_diccionario)
+    creacion_seleccionada = datos["creacion"]
+ 
+    if creacion_seleccionada == "Superhero": 
+        #PROMPT PARA HEROE
+        prompt = f"A watercolor of a superhero like {nombre_heroe} " #agregar otros atributos random aquí posteriormente.
+        print(prompt)
+    
+    elif creacion_seleccionada == "Superheroine": 
+        #PROMPT PARA HEROE
+        prompt = f"A watercolor of a superheroine like {nombre_heroe} " #agregar otros atributos random aquí posteriormente.
+        print(prompt)
+      
     return prompt

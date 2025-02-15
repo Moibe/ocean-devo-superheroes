@@ -14,21 +14,11 @@ def iniciar():
 html_credits = gr.HTML(visible=True)
 lbl_console = gr.Label(label="AI Terminal " + globales.version +  " messages", value="", container=True)
 btn_buy = gr.Button("Get Credits", visible=False, size='lg')
+hero = gr.Dropdown(["cat", "dog", "bird"], label="Animal", info="Will add more animals later!")
 
 #Customizable Inputs and Outputs
-input1, gender, result = inputs.inputs_selector(globales.seto)  
+input1, gender, hero, result = inputs.inputs_selector(globales.seto)  
 #Otros Controles y Personalizaciones
-
-js = """
-function createGradioAnimation() {
-    
-    console.log("Hola Mundo!")
-    // Guardar los créditos en el localStorage
-    localStorage.setItem('creditos', 10);
-
-    return 'Animation created';
-}
-"""
 
 nombre_posicion = gr.Label(label="Posicion") #Ponle visible false para producción para no mover todo lo demás.
 
@@ -39,7 +29,7 @@ with gr.Blocks(theme=globales.tema, css="footer {visibility: hidden}") as main:
     with gr.Row():
         demo = gr.Interface(
             fn=funciones.perform,
-            inputs=[input1, gender], 
+            inputs=[input1, gender, hero], 
             outputs=[result, lbl_console, html_credits, btn_buy, nombre_posicion], 
             flagging_mode=globales.flag
             )
