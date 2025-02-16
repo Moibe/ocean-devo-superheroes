@@ -3,6 +3,7 @@ import sulkuPypi
 import gradio as gr
 import threading
 import tools
+import fireWhale
 
 #import modulo_correspondiente
 mensajes, sulkuMessages = tools.get_mensajes(globales.mensajes_lang)
@@ -14,11 +15,14 @@ def displayTokens(request: gr.Request):
     
     global result_from_displayTokens
 
-    novelty = sulkuPypi.getNovelty(sulkuPypi.encripta(request.username).decode("utf-8"), globales.aplicacion)    
+    print("El usuario supuestamente es: ", request.username)
+    novelty = fireWhale.obtenDato('usuarios', request.username, 'novelty' )
+    #novelty = sulkuPypi.getNovelty(sulkuPypi.encripta(request.username).decode("utf-8"), globales.aplicacion)    
     if novelty == "new_user": 
         display = gr.Textbox(visible=False)
-    else: 
-        tokens = sulkuPypi.getTokens(sulkuPypi.encripta(request.username).decode("utf-8"), globales.env)
+    else:
+        tokens = fireWhale.obtenDato('usuarios', request.username, 'tokens') 
+        #tokens = sulkuPypi.getTokens(sulkuPypi.encripta(request.username).decode("utf-8"), globales.env)
         display = visualizar_creditos(tokens, request.username) 
     
     result_from_displayTokens = display
@@ -93,14 +97,21 @@ def manejadorExcepciones(excepcion):
 
 def presentacionFinal(usuario, accion):
         
-    capsule = sulkuPypi.encripta(usuario).decode("utf-8") #decode es para quitarle el 'b
+    #Teniendo fireWhale, ya no se usa.
+    #capsule = sulkuPypi.encripta(usuario).decode("utf-8") #decode es para quitarle el 'b
     
     if accion == "debita":        
-        tokens = sulkuPypi.debitTokens(capsule, globales.work, globales.env)
+        #tokens = sulkuPypi.debitTokens(capsule, globales.work, globales.env)
+        tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens') #obtienes
+        print(f"Antes de debitar tienes {tokens} tokens.")
+        tokens = tokens - globales.costo_work #debitas
+        fireWhale.editaDato('usuarios', usuario, 'tokens', tokens) #editas
+        print(f"Después de debitar tienes {tokens} tokens.")
         info_window = sulkuMessages.result_ok        
     else: 
         info_window = "No face in source path detected."
-        tokens = sulkuPypi.getTokens(capsule, globales.env)
+        #tokens = sulkuPypi.getTokens(capsule, globales.env)
+        tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens') #obtienes
     
     html_credits = visualizar_creditos(tokens, usuario)       
     

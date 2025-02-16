@@ -5,6 +5,7 @@ from huggingface_hub import HfApi
 import bridges
 import sulkuPypi
 import importlib
+import fireWhale
 
 def theme_selector():
     temas_posibles = [
@@ -59,7 +60,9 @@ def eligeAOB():
 
 def eligeQuotaOCosto():
 #Se eligirá en los casos en los que se use Zero, para extender las posibilidades de Quota y después usar Costo.
-    diferencia = sulkuPypi.getQuota() - globales.process_cost
+    #diferencia = sulkuPypi.getQuota() - globales.process_cost
+    diferencia = fireWhale.obtenDato("quota", "quota", "segundos") - globales.process_cost
+    print("La diferencia es: ", diferencia)
     print("Si está sacando la diferencia y es: ", diferencia)
 
     if diferencia >= 0:

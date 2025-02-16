@@ -2,6 +2,7 @@
 /__pycache__/
 /logs/
 bridges.py
+config.json
 /.gradio/
 /images/positions/
 /data/__pycache__/
