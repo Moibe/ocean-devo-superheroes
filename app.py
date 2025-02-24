@@ -14,7 +14,6 @@ def iniciar():
 html_credits = gr.HTML(visible=True)
 lbl_console = gr.Label(label="AI Terminal " + globales.version +  " messages", value="", container=True)
 btn_buy = gr.Button("Get Credits", visible=False, size='lg')
-hero = gr.Dropdown(["cat", "dog", "bird"], label="Animal", info="Will add more animals later!")
 
 #Customizable Inputs and Outputs
 input1, gender, hero, result = inputs.inputs_selector(globales.seto)  

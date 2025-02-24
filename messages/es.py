@@ -10,4 +10,5 @@ label_resultado = "Resultado"
 lbl_transform = "Conviérteme en:"
 lbl_superhero = "Superheroe"
 lbl_superheroine = "Superheroina"
+lbl_choose = "Elige un superhéroe..."
 
