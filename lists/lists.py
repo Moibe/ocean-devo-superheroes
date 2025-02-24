@@ -35,8 +35,14 @@ super_heroines = [
                   ("DC's Powergirl"),   
                   ("Harley Quinn"),   
                   ("Hiedra Venenosa", "Poison Ivy"),
-                  ("Reina Blanca", "White Queen"), 
-                  ("Domino", "Marvel's Domino")                             
+                  # ("Reina Blanca", "White Queen"), 
+                  ("Reina Blanca", "White Queen Emma Frost"), #OK!
+                  # ("Reina Blanca", "Emma Frost"), 
+                  ("Reina Blanca", "Marvel's White Queen"), #OK!!
+                  ("Reina Blanca", "Marvel's Emma Frost"),
+                  # ("Domino", "Marvel's Domino"), 
+                  ("Jean Grey", "Marvel's Jean Grey"),
+                  ("Jean Grey", "Xmen Jean Grey")                            
                   ]
 
 super_heroes = [
@@ -64,5 +70,6 @@ super_heroes = [
                   ("Robin"),
                   ("Robin Sin Máscara", "Unmasked Robin"),
                   ("Ozymandias de Watchen", "Watchmen Ozymandias"),                  
-                  ("Superheroe sin máscara", "Unmasked Superhero")               
+                  ("Superheroe sin máscara", "Unmasked Superhero"),  
+                  ("Colossus", "Xmen Colossus")             
                   ]

@@ -9,13 +9,14 @@ import random
 import splashmix.splash_tools as splash_tools
 import splashmix.configuracion as configuracion
 import fireWhale
+import time
 
 mensajes, sulkuMessages = tools.get_mensajes(globales.mensajes_lang)
 
 btn_buy = gr.Button("Get Credits", visible=False, size='lg')
 
 #PERFORM es la app INTERNA que llamará a la app externa.
-def perform(input1, gender, hero, request: gr.Request):          
+def perform(input1, gender, hero, request: gr.Request):   
 
     nombre_posicion = ""
     #tokens = sulkuPypi.getTokens(sulkuPypi.encripta(request.username).decode("utf-8"), globales.env)
@@ -40,6 +41,7 @@ def perform(input1, gender, hero, request: gr.Request):
     #Primero revisa si es imagen!: 
     if "image.webp" in resultado:
         #Si es imagen, debitarás.
+        resultado = tools.renombra_imagen(hero, resultado)
         html_credits, info_window = sulkuFront.presentacionFinal(request.username, "debita")
     else: 
         #Si no es imagen es un texto que nos dice algo.

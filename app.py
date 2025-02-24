@@ -4,6 +4,7 @@ import funciones
 import sulkuFront
 import autorizador
 import gradio as gr
+import time
 
 def iniciar():    
     app_path = globales.app_path

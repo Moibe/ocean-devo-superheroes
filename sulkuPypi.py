@@ -153,7 +153,6 @@ def updateQuota(costo_proceso):
 
     if response.status_code == 200:
         quota = response.json()
-        print("Quota Updated:", quota)
     else:
         error = f"Error al obtener el elemento todo: {response.status_code}"
         return error

@@ -13,7 +13,7 @@ def creadorObjeto(objetoACrear, databank):
     
     #Crea ese objeto para regresarlo.    
     creacion = clase(archivo_databank=databank) #Podrías agregar parametros para que así sea hecho desde su concepción: style="anime", adjective="naughty"
-    print("Ésto es la creación creada por la clase: ", creacion)
+    #print("Ésto es la creación creada por la clase: ", creacion)
     #Pero por ahora se ponen de forma fija hasta después de creado. 
     #Future: Checar si cambiarlo a éste punto mejora rendimiento.
     return creacion
