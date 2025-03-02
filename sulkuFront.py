@@ -15,7 +15,6 @@ def displayTokens(request: gr.Request):
     
     global result_from_displayTokens
 
-    print("El usuario supuestamente es: ", request.username)
     novelty = fireWhale.obtenDato('usuarios', request.username, 'novelty' )
     #novelty = sulkuPypi.getNovelty(sulkuPypi.encripta(request.username).decode("utf-8"), globales.aplicacion)    
     if novelty == "new_user": 
@@ -111,7 +110,7 @@ def presentacionFinal(usuario, accion):
     else: 
         info_window = "No face in source path detected."
         #tokens = sulkuPypi.getTokens(capsule, globales.env)
-        tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens') #obtienes
+        tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens')
     
     html_credits = visualizar_creditos(tokens, usuario)       
     

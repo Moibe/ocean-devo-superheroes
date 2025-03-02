@@ -33,8 +33,6 @@ def eligeAPI(opcion):
     else:
         print("Opción no válida")
 
-    print(f"Regresando: {api} y {tipo_api}.")
-
     return api, tipo_api
 
 #Los tipos de elección son diferentes porque tienen diferentes reglas de negocio.

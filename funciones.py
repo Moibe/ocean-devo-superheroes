@@ -53,12 +53,9 @@ def perform(input1, gender, hero, request: gr.Request):
 
 #MASS es la que ejecuta la aplicación EXTERNA
 def mass(input1, gender, hero):
-
-    print("El hero recibido es: ", hero)
         
     api, tipo_api = tools.eligeAPI(globales.seleccion_api)  
     client = gradio_client.Client(api, hf_token=bridges.hug)
-    #client = gradio_client.Client("https://058d1a6dcdbaca0dcf.gradio.live/")  #MiniProxy
 
     #Adquisición Databank Particular para ese objeto y género....
     nombre_databank = gender
@@ -92,7 +89,7 @@ def mass(input1, gender, hero):
                 imagenSource,
                 imagenPosition,
                 prompt=prompt,
-                negative_prompt="(lowres, low quality, worst quality:1.2), (text:1.2), watermark, (frame:1.2), deformed, ugly, deformed eyes, blur, out of focus, blurry, deformed cat, deformed, photo, anthropomorphic cat, monochrome, pet collar, gun, weapon, 3d, drones, drone, buildings in background",
+                #negative_prompt="(lowres, low quality, worst quality:1.2), (text:1.2), watermark, (frame:1.2), deformed, ugly, deformed eyes, blur, out of focus, blurry, deformed cat, deformed, photo, anthropomorphic cat, monochrome, pet collar, gun, weapon, 3d, drones, drone, buildings in background",
                 style_name="(No style)", #ver lista en styles.txt
                 num_steps=30,
                 identitynet_strength_ratio=0.8,

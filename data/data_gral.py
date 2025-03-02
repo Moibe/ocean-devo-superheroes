@@ -1,3 +1,3 @@
 lista_estilos = [               
-                 "watercolor",                
+                 "watercolor",  
                  ]

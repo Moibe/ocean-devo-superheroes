@@ -26,4 +26,4 @@ tema = gr.themes.Default()
 flag = "never"
 
 neural_wait = 6
-mensajes_lang = "en"
+mensajes_lang = "es"
