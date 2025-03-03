@@ -208,7 +208,6 @@ def renombra_imagen(hero, resultado):
     print(timestamp_segundos)
 
     hero = hero.replace(" ", "")
-    print("Después del replace, hero debería ser: ", hero)
 
     # 1. Obtener el directorio y el nombre del archivo original
     directorio = os.path.dirname(resultado)
@@ -221,7 +220,6 @@ def renombra_imagen(hero, resultado):
     # 3. Renombrar el archivo
     try:
         os.rename(resultado, nueva_ruta)
-        print(f"Archivo renombrado de '{nombre_original}' a '{nuevo_nombre}'")
     except FileNotFoundError:
         print(f"Error: El archivo '{resultado}' no existe.")
     except FileExistsError:
@@ -231,6 +229,5 @@ def renombra_imagen(hero, resultado):
 
     # 4. (Opcional) Actualizar la variable 'resultado' con la nueva ruta
     resultado = nueva_ruta
-    print(f"Nueva ruta: {resultado}")
-
+   
     return resultado

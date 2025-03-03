@@ -1,15 +1,14 @@
+import tools
+import random
 import bridges
 import globales
+import fireWhale
 import sulkuFront
 import gradio as gr
 import gradio_client
 import splashmix.prompter as prompter
-import tools
-import random
 import splashmix.splash_tools as splash_tools
 import splashmix.configuracion as configuracion
-import fireWhale
-import time
 
 mensajes, sulkuMessages = tools.get_mensajes(globales.mensajes_lang)
 
@@ -29,8 +28,7 @@ def perform(input1, gender, hero, request: gr.Request):
             gender = gender or "superhero" #default es superhero.
             resultado, nombre_posicion = mass(input1, gender, hero)
             #El resultado ya viene destuplado.
-        except Exception as e:
-            print("Excepción en mass: ", e)                     
+        except Exception as e:                              
             info_window, resultado, html_credits = sulkuFront.aError(request.username, tokens, excepcion = tools.titulizaExcepDeAPI(e))
             return resultado, info_window, html_credits, btn_buy, nombre_posicion          
     else:
@@ -125,7 +123,7 @@ def mass(input1, gender, hero):
             #sulkuPypi.updateQuota(globales.process_cost) #Ahora se usará fireWhale, son más líneas porque la api hacia todo.
             #Pero si es menos tiempo de proceso hacerlo con Firestore.
             quota_actual = fireWhale.obtenDato("quota", "quota", "segundos")
-            print("La quota actual que hay es: ", quota_actual)
+            #print("La quota actual que hay es: ", quota_actual)
             quota_nueva = quota_actual - globales.process_cost
             print("La quota nueva es: ", quota_nueva)
             fireWhale.editaDato("quota", "quota", "segundos", quota_nueva)

@@ -1,5 +1,5 @@
-import splashmix.configuracion
 import random
+import splashmix.configuracion
 
 #Ésto requiere que cada tipo de creación que hagas tenga un prompt único y se pone aquí de forma muy manual.
 #El prompt en forma de variable incluirá los atributos para ese objeto, así mismo si quieres más, trabaja en la parte...
@@ -35,7 +35,7 @@ def fraseador(nombre_heroe, nombre_diccionario):
     creacion_seleccionada = datos["creacion"]
 
     #En el fraseador, el estilo viene directo de aquí: 
-    estilos_posibles = ["watercolor", "anime"]
+    estilos_posibles = ["watercolor"]
     estilo = random.choice(estilos_posibles)
      
     if creacion_seleccionada == "Superhero": 

@@ -1,9 +1,8 @@
-import globales
-import sulkuPypi
-import gradio as gr
-import threading
 import tools
+import globales
 import fireWhale
+import threading
+import gradio as gr
 
 #import modulo_correspondiente
 mensajes, sulkuMessages = tools.get_mensajes(globales.mensajes_lang)
@@ -94,15 +93,11 @@ def manejadorExcepciones(excepcion):
 
     return info_window
 
-def presentacionFinal(usuario, accion):
-        
-    #Teniendo fireWhale, ya no se usa.
-    #capsule = sulkuPypi.encripta(usuario).decode("utf-8") #decode es para quitarle el 'b
+def presentacionFinal(usuario, accion):        
     
     if accion == "debita":        
         #tokens = sulkuPypi.debitTokens(capsule, globales.work, globales.env)
         tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens') #obtienes
-        print(f"Antes de debitar tienes {tokens} tokens.")
         tokens = tokens - globales.costo_work #debitas
         fireWhale.editaDato('usuarios', usuario, 'tokens', tokens) #editas
         print(f"Después de debitar tienes {tokens} tokens.")

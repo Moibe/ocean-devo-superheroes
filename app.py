@@ -4,7 +4,6 @@ import funciones
 import sulkuFront
 import autorizador
 import gradio as gr
-import time
 
 def iniciar():    
     app_path = globales.app_path
@@ -18,12 +17,12 @@ btn_buy = gr.Button("Get Credits", visible=False, size='lg')
 
 #Customizable Inputs and Outputs
 input1, gender, hero, result = inputs.inputs_selector(globales.seto)  
-#Otros Controles y Personalizaciones
 
+#Otros Controles y Personalizaciones
 nombre_posicion = gr.Label(label="Posicion") #Ponle visible false para producción para no mover todo lo demás.
 
 with gr.Blocks(theme=globales.tema, css="footer {visibility: hidden}") as main:   
-    #Cargado en Load: Función, input, output
+    
     main.load(sulkuFront.precarga, None, html_credits) 
        
     with gr.Row():
