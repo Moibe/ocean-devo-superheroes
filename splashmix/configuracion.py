@@ -14,7 +14,7 @@ superhero = {
 superheroine = {
     "creacion": "Superheroine",
     "selected_databank": splashmix.static_databanks.Superheroine,
-    "positions_path": "girlPositions"
+    "positions_path": "superheroes"
 }
 
 hotgirl = {

@@ -17,15 +17,14 @@ super_heroines = [
                   ("Superchica", "Supergirl"),                  
                   #("Xmen Rogue", "Xmen Titania"), 
                   #("Gata Negra", "Marvel's Black Cat"), 
-                  #("Mujer Araña", "Spiderwoman"),    
-                  #("Domino", "Marvel's Domino"),                                        
+                  #("Mujer Araña", "Spiderwoman"),                                      
                   ]
 
 super_heroes = [
-                #("Antorcha Humana", "Human Torch"), #Checar
-                ("Antorcha Humana", "Fantastic 4 Human Torch"),
-                ("Arcángel (X-men)", "Xmen Archangel"),
-                #("Arcángel (X-men)", "Xmen Archangel with wings spread"), #Checar
+                ("Antorcha Humana", "Human Torch"), #Checar
+                # ("Antorcha Humana", "Fantastic 4 Human Torch"),
+                # ("Arcángel (X-men)", "Xmen Archangel"),
+                ("Arcángel (X-men)", "Xmen Archangel with wings spread"), #Checar
                 ("Aquaman"),
                 ("Batman"),
                 ("Capitán America", "Captain America"),
@@ -41,14 +40,13 @@ super_heroes = [
                 ("StarLord"),
                 ("Superman"),     
                 ("Spiderman", "Spiderman"),
-                ("Xmen"), #El problema podría ser que salen muchos.  
+                ("Xmen"), #El problema en anime particularmente es que salen muchos.  
                 ("War Machine"),                
                 ("Wolverine"),
                 # ("Hulk", "Hulk with green face"), ######                    
                 # ("Peter Parker"),
                 # ("Flash"),                  
-                # ("Robin"),
-                # ("Robin", "DC's Robin"),                           
+                # ("Robin"),                       
                 # ("Colossus", "Colossus"),
                 # ("Guasón", "The Joker"), 
                 # ("Guasón", "The Joker with suit"), 

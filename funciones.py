@@ -119,7 +119,6 @@ def mass(input1, gender, hero):
         # result = ast.literal_eval(result)  
 
         if tipo_api == "quota":
-            print("Si era de quota, voy a debitar.")
             #sulkuPypi.updateQuota(globales.process_cost) #Ahora se usará fireWhale, son más líneas porque la api hacia todo.
             #Pero si es menos tiempo de proceso hacerlo con Firestore.
             quota_actual = fireWhale.obtenDato("quota", "quota", "segundos")

@@ -1,11 +1,14 @@
 /venv/
 /__pycache__/
 /logs/
-bridges.py
-config.json
 /.gradio/
 /images/positions/
 /data/__pycache__/
 /configuracion/__pycache__/
 /flagged/
 **/__pycache__/
+
+bridges.py
+config.json
+
+

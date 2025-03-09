@@ -35,7 +35,7 @@ def fraseador(nombre_heroe, nombre_diccionario):
     creacion_seleccionada = datos["creacion"]
 
     #En el fraseador, el estilo viene directo de aquí: 
-    estilos_posibles = ["watercolor"]
+    estilos_posibles = ["watercolor"] #"glow and sparks watercolor luminous art"
     estilo = random.choice(estilos_posibles)
      
     if creacion_seleccionada == "Superhero": 
@@ -45,7 +45,7 @@ def fraseador(nombre_heroe, nombre_diccionario):
     
     elif creacion_seleccionada == "Superheroine": 
         #PROMPT PARA HEROE
-        prompt = f"A watercolor of a superheroine like {nombre_heroe} " #agregar otros atributos random aquí posteriormente.
+        prompt = f"A {estilo} of a superheroine like {nombre_heroe} " #agregar otros atributos random aquí posteriormente.
         print(prompt)
       
     return prompt
