@@ -4,7 +4,6 @@ import splashmix.static_databanks
 general_databank = splashmix.static_databanks.general_data 
 
 #Diccionarios que contienen las opciones de cada objeto disponible:
-
 superhero = {
     "creacion": "Superhero",
     "selected_databank": splashmix.static_databanks.Superhero,
@@ -14,11 +13,5 @@ superhero = {
 superheroine = {
     "creacion": "Superheroine",
     "selected_databank": splashmix.static_databanks.Superheroine,
-    "positions_path": "superheroes"
-}
-
-hotgirl = {
-    "creacion": "Hotgirl",
-    "selected_databank": splashmix.static_databanks.Hotgirl,
-    "positions_path": "girlPositions"
+    "positions_path": "superheroines"
 }

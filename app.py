@@ -9,9 +9,9 @@ def iniciar():
     app_path = globales.app_path
     main.queue(max_size=globales.max_size)
     #Con autorizador
-    #main.launch(auth=autorizador.authenticate, root_path=app_path, server_port=globales.server_port)
+    main.launch(auth=autorizador.authenticate, root_path=app_path, server_port=globales.server_port)
     #Paso directo 
-    main.launch(root_path=app_path, server_port=globales.server_port)
+    #main.launch(root_path=app_path, server_port=globales.server_port)
 
 #Credit Related Elements
 html_credits = gr.HTML(visible=globales.credits_visibility)
@@ -22,7 +22,7 @@ btn_buy = gr.Button("Get Credits", visible=False, size='lg')
 input1, gender, hero, result = inputs.inputs_selector(globales.seto)  
 
 #Otros Controles y Personalizaciones
-nombre_posicion = gr.Label(label="Posición") #Ponle visible false para producción para no mover todo lo demás.
+nombre_posicion = gr.Label(label="Posición", visible=globales.posicion_marker)
 
 with gr.Blocks(theme=globales.tema, css="footer {visibility: hidden}") as main:   
     
