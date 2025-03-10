@@ -10,7 +10,6 @@ db = firestore.client()
 
 def obtenDato(coleccion, dato, info):
     #Colección es la base donde está, dato es el índice con el que buscaremos e info es el resultado que estamos buscando. 
-    
     #Future: Tentativamente ésta parte podría solo hacerse una vez y vivir en la app para ser reutilizado.
     ###
     #Primero debemos definir la referencia al documento, o sea a la hoja de usuario.

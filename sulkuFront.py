@@ -10,18 +10,18 @@ mensajes, sulkuMessages = tools.get_mensajes(globales.mensajes_lang)
 result_from_displayTokens = None 
 result_from_initAPI = None    
 
-def displayTokens(request: gr.Request):
+def displayTokens(usuario):
     
     global result_from_displayTokens
 
-    novelty = fireWhale.obtenDato('usuarios', request.username, 'novelty' )
-    #novelty = sulkuPypi.getNovelty(sulkuPypi.encripta(request.username).decode("utf-8"), globales.aplicacion)    
+    novelty = fireWhale.obtenDato('usuarios', usuario, 'novelty' )
+        
     if novelty == "new_user": 
         display = gr.Textbox(visible=False)
     else:
-        tokens = fireWhale.obtenDato('usuarios', request.username, 'tokens') 
+        tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens') 
         #tokens = sulkuPypi.getTokens(sulkuPypi.encripta(request.username).decode("utf-8"), globales.env)
-        display = visualizar_creditos(tokens, request.username) 
+        display = visualizar_creditos(tokens, usuario) 
     
     result_from_displayTokens = display
 
@@ -30,8 +30,13 @@ def precarga(request: gr.Request):
     # global result_from_initAPI
     # global result_from_displayTokens
 
+    if globales.acceso == "login": 
+        usuario = request.username
+    else:        
+        usuario = globales.usuario
+
     #thread1 = threading.Thread(target=initAPI)
-    thread2 = threading.Thread(target=displayTokens, args=(request,))
+    thread2 = threading.Thread(target=displayTokens, args=(usuario,))
 
     #thread1.start()
     thread2.start()
@@ -96,12 +101,14 @@ def manejadorExcepciones(excepcion):
 def presentacionFinal(usuario, accion):        
     
     if accion == "debita":        
-        #tokens = sulkuPypi.debitTokens(capsule, globales.work, globales.env)
         tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens') #obtienes
         tokens = tokens - globales.costo_work #debitas
         fireWhale.editaDato('usuarios', usuario, 'tokens', tokens) #editas
         print(f"Después de debitar tienes {tokens} tokens.")
-        info_window = sulkuMessages.result_ok        
+        info_window = sulkuMessages.result_ok
+    elif accion == "no-debitar": #Aquí llega si está en modo libre.
+        info_window = sulkuMessages.result_ok
+        tokens = "Free"        
     else: 
         info_window = "No face in source path detected."
         #tokens = sulkuPypi.getTokens(capsule, globales.env)

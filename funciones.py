@@ -18,8 +18,13 @@ btn_buy = gr.Button("Get Credits", visible=False, size='lg')
 def perform(input1, gender, hero, request: gr.Request):   
 
     nombre_posicion = ""
-    #tokens = sulkuPypi.getTokens(sulkuPypi.encripta(request.username).decode("utf-8"), globales.env)
-    tokens = fireWhale.obtenDato('usuarios', request.username, 'tokens')
+    
+    if globales.acceso == "login": 
+        usuario = request.username
+    else:        
+        usuario = globales.usuario 
+
+    tokens = fireWhale.obtenDato('usuarios', usuario, 'tokens')
     
     #1: Reglas sobre autorización si se tiene el crédito suficiente.
     #autorizacion = sulkuPypi.authorize(tokens, globales.work)
@@ -29,21 +34,22 @@ def perform(input1, gender, hero, request: gr.Request):
             resultado, nombre_posicion = mass(input1, gender, hero)
             #El resultado ya viene destuplado.
         except Exception as e:                              
-            info_window, resultado, html_credits = sulkuFront.aError(request.username, tokens, excepcion = tools.titulizaExcepDeAPI(e))
+            info_window, resultado, html_credits = sulkuFront.aError(usuario, tokens, excepcion = tools.titulizaExcepDeAPI(e))
             return resultado, info_window, html_credits, btn_buy, nombre_posicion          
     else:
         #Si no hubo autorización.
-        info_window, resultado, html_credits = sulkuFront.noCredit(request.username)
+        info_window, resultado, html_credits = sulkuFront.noCredit(usuario)
         return resultado, info_window, html_credits, btn_buy, nombre_posicion
        
     #Primero revisa si es imagen!: 
     if "image.webp" in resultado:
         #Si es imagen, debitarás.
         resultado = tools.renombra_imagen(hero, resultado)
-        html_credits, info_window = sulkuFront.presentacionFinal(request.username, "debita")
+        accion = "no-debitar" if globales.acceso == "libre" else "debita"
+        html_credits, info_window = sulkuFront.presentacionFinal(usuario, accion)
     else: 
         #Si no es imagen es un texto que nos dice algo.
-        info_window, resultado, html_credits = sulkuFront.aError(request.username, tokens, excepcion = resultado)
+        info_window, resultado, html_credits = sulkuFront.aError(usuario, tokens, excepcion = resultado)
         return resultado, info_window, html_credits, btn_buy, nombre_posicion           
            
     #Lo que se le regresa oficialmente al entorno.

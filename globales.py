@@ -3,7 +3,7 @@ import gradio as gr
 nombre_diccionario = "datos_superheroe"
 
 #MAIN
-version = "11.21.26"
+version = "12.21.26"
 env = "dev"
 aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
 
@@ -27,3 +27,7 @@ flag = "never"
 
 neural_wait = 4
 mensajes_lang = "es"
+
+acceso = "metrado"  #login, metrado o libre, login para medición y acceso normal, metrado para no usar login pero si medir los créditos, para eso se utilizará el parámetro global de usuario, y libre no tiene login ni metrado.
+usuario = "ella"
+credits_visibility = True
