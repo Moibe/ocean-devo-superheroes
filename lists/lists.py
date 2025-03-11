@@ -1,13 +1,16 @@
 super_heroines = [
+                  ("Avispa (Wasp)", "The Wasp"),
                   ("Batichica", "Batgirl"),
                   ("Black Widow", "Black Widow"),
                   ("Bruja Escarlata", "Scarlet Witch"),
                   ("Capitana Marvel", "Captain Marvel"),
                   ("Elektra", "Elektra with katana"),
+                  ("Gamora (Guardianes de la Galaxia)", "Guardians of the Galaxy Gamora"),
                   ("Gatúbela", "Catwoman"),
                   ("Harley Quinn"),   
                   ("Hiedra Venenosa", "Poison Ivy"),
-                  ("Jean Grey (X-Men)", "Marvel's Jean Grey"),  
+                  ("Jean Grey (X-Men)", "Marvel's Jean Grey"),
+                  ("Mantis", "Guardians of the Galaxy Mantis with antennae in her forehead"),  
                   ("Mera (Aquaman)", "Mera"),
                   ("Mujer Maravilla", "Wonder Woman"),
                   ("Powergirl"), 
@@ -15,14 +18,11 @@ super_heroines = [
                   ("Reina Blanca", "White Queen Emma Frost"), #OK! #Under Supervisión.
                   ("She-Hulk"),
                   ("Superchica", "Supergirl"),                  
-                  #("Xmen Rogue", "Xmen Titania"), 
-                  #("Gata Negra", "Marvel's Black Cat"), 
-                  #("Mujer Araña", "Spiderwoman"),                                      
+                  #("Xmen Rogue", "Xmen Titania"),                                      
                   ]
 
 super_heroes = [
-                ("Antorcha Humana", "Human Torch"), #Checar
-                # ("Antorcha Humana", "Fantastic 4 Human Torch"),
+                ("Antorcha Humana", "Human Torch"), 
                 # ("Arcángel (X-men)", "Xmen Archangel"),
                 ("Arcángel (X-men)", "Xmen Archangel with wings spread"), #Checar
                 ("Aquaman"),

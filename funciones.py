@@ -33,6 +33,7 @@ def perform(input1, gender, hero, request: gr.Request):
             gender = gender or "superhero" #default es superhero.
             resultado, nombre_posicion = mass(input1, gender, hero)
             #El resultado ya viene destuplado.
+            print("Resultado de mass se ve así: ", resultado)
         except Exception as e:                              
             info_window, resultado, html_credits = sulkuFront.aError(usuario, tokens, excepcion = tools.titulizaExcepDeAPI(e))
             return resultado, info_window, html_credits, btn_buy, nombre_posicion          
