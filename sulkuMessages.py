@@ -1,6 +1,5 @@
 result_ok = "Result ready!" 
-
-out_of_credits = "Out of credits..."
+out_of_credits = "Out of credits..." #Evaluar si aún son necesarios.
 
 PAUSED = "AI Engine Paused, ready soon."
 RUNTIME_ERROR= "Error building AI environment, please contact me."

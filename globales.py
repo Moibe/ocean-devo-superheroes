@@ -1,11 +1,14 @@
 import gradio as gr
 
-nombre_diccionario = "datos_superheroe"
+app_path = "/superheroes-dev"
+server_port=7880
 
 #MAIN
-version = "13.23.26"
-env = "dev"
-aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
+version = "13.24.26" #Minor Fixes, remove js y html y reubicación de parámetros en globales. Remove cryptography, remove envs dev o prod for user check.
+#env = "dev"
+#aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
+
+nombre_diccionario = "datos_superheroe"
 
 seleccion_api = "eligeQuotaOCosto" #eligeQuotaOCosto , eligeAOB o eligeGratisOCosto
 max_size = 20
@@ -20,8 +23,7 @@ process_cost = 18
 seto = "splashmix"
 work = "picswap"
 costo_work = 1 #Se integró costo_work para definir aquí directamente lo que cueta picswap, y dejar de usar la var work.
-app_path = "/superheroes-dev"
-server_port=7880
+
 tema = gr.themes.Default()
 flag = "never"
 
