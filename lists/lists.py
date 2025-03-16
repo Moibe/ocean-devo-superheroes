@@ -10,7 +10,7 @@ super_heroines = [
                   ("Harley Quinn"),   
                   ("Hiedra Venenosa", "Poison Ivy"),
                   ("Jean Grey (X-Men)", "Marvel's Jean Grey"),
-                  ("Mantis", "Guardians of the Galaxy Mantis with antennae in her forehead"),  
+                  ("Mantis (Guardianes de la Galaxia)", "Guardians of the Galaxy Mantis with antennae in her forehead"),  
                   ("Mera (Aquaman)", "Mera"),
                   ("Mujer Maravilla", "Wonder Woman"),
                   ("Powergirl"), 

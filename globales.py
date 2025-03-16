@@ -4,7 +4,7 @@ app_path = "/superheroes-dev"
 server_port=7880
 
 #MAIN
-version = "13.24.26" #Minor Fixes, remove js y html y reubicación de parámetros en globales. Remove cryptography, remove envs dev o prod for user check.
+version = "13.24.27" #Fix Mantins option.
 #env = "dev"
 #aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
 
