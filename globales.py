@@ -4,9 +4,7 @@ app_path = "/superheroes-dev"
 server_port=7880
 
 #MAIN
-version = "13.24.28" #Firebase Test.
-#env = "dev"
-#aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
+version = "13.25.28" #Firebase Auth Check Ready.
 
 nombre_diccionario = "datos_superheroe"
 
