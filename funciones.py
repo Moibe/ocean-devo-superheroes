@@ -17,6 +17,11 @@ btn_buy = gr.Button("Get Credits", visible=False, size='lg')
 #PERFORM es la app INTERNA que llamará a la app externa.
 def perform(input1, gender, hero, request: gr.Request):   
 
+    print("Esto es request: ", request)
+    print("Request.json: ", dir(request))
+    id_token = request.request
+    print("Esto es id token: ", id_token )
+
     nombre_posicion = ""
     
     if globales.acceso == "login": 

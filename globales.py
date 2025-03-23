@@ -4,7 +4,7 @@ app_path = "/superheroes-dev"
 server_port=7880
 
 #MAIN
-version = "13.24.27" #Fix Mantins option.
+version = "13.24.28" #Firebase Test.
 #env = "dev"
 #aplicacion = "superheroes-dev" #como se llama en tu repo y tu dominio.
 

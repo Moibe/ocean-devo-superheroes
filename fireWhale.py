@@ -2,6 +2,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
+from firebase_admin import auth
+
 # Use the application default credentials.
 cred = credentials.Certificate('config.json')
 firebase_admin.initialize_app(cred)
@@ -32,4 +34,16 @@ def editaDato(coleccion, dato, info, contenido):
         # 'quote': quote,
         info: contenido,
     })
+
+def verificar_token(id_token):
+    """Verifica el token de ID de Firebase."""
+    try:
+        # Verifica el token y decodifica la información del usuario
+        decoded_token = auth.verify_id_token(id_token)
+        uid = decoded_token['uid']
+        return uid  # Retorna el UID del usuario si el token es válido
+    except auth.InvalidIdTokenError as e:
+        print(f"Token inválido: {e}")
+        return None  # Retorna None si el token es inválido
+
 
