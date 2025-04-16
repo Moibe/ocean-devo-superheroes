@@ -12,7 +12,7 @@ La nomenclatura será ocean- como prefijo, con lo que indicas que es el front de
 
 4.- Haz git push origin main, para probar y subir el repositorio a su nuevo lugar en Github. <br>
 
-5.- Ahora en tu servidor 🖥️ crea el directorio para tu app, generalmente con el mismo nombre que el repo.<br>
+5.- Ahora en tu servidor 🖥 crea el directorio para tu app, generalmente con el mismo nombre que el repo.<br>
 
 Inicializalo para git con **git init**.<br>
 Agrega el remoto con **git remote add origin ***ruta de tu nuevo repositorio*** **<br>
